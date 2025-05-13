@@ -3,13 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --secondary: #E9A5F1;
+  --secondary: #cb90d1;
+  --tertiary: #af7cb5;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -18,7 +20,8 @@
   :root {
     --background: #323232;
     --foreground: #ededed;
-    --secondary: #E9A5F1;
+    --secondary: #cb90d1;
+    --tertiary: #af7cb5;
   }
 }
 
