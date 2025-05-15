@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     background-color: var(--tertiary);
-    width: 350px;
-    height: 100vh;
+    min-width: 350px;
+    height: 90vh;
     padding: 15px;
 }
 
@@ -38,7 +38,7 @@
         margin-top: 0.5rem;
         &:hover {
             cursor: pointer;
-            background-color: var(--color-button-hover);
+            background-color: var(--button-hover);
         }
     }
 }
