@@ -5,7 +5,9 @@
   --foreground: #323232;
   --secondary: #cb90d1;
   --tertiary: #af7cb5;
-  --color-button-hover: #dcdcdc;
+  --container: #eaeaea;
+  --button-hover: #dcdcdc;
+  --reverse: #878787;
 }
 
 @theme inline {
@@ -13,7 +15,9 @@
   --color-foreground: var(--foreground);
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
-  --color-button-hover: var(--color-button-hover);
+  --color-container: var(--container);
+  --color-button-hover: var(--button-hover);
+  --color-reverse: var(--reverse);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -24,7 +28,9 @@
     --foreground: #ededed;
     --secondary: #cb90d1;
     --tertiary: #af7cb5;
-    --color-button-hover: #dcdcdc;
+    --container: #2e2e2e;
+    --button-hover: #dcdcdc;
+    --reverse: #878787;
   }
 }
 
