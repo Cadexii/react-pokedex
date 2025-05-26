@@ -14,9 +14,19 @@ export type PokemonProps = {
 
 const PokemonContent = () => {
   const [pokemonList, setPokemonList] = useState<PokemonProps[]>([]);
+  const [limitBtn, setLimitBtn] = useState("Show More");
+  const [limit, setLimit] = useState(15);
+
+  const handleLoadMore = async () => {
+    if (limitBtn === "Loading...") return;
+    setLimit((prevLimit) => prevLimit + 15);
+    setLimitBtn("Loading...");
+    await fetchPokemon();
+    setLimitBtn("Show More");
+  };
 
   const fetchPokemon = async () => {
-    await fetch("https://pokeapi.co/api/v2/pokemon?limit=10")
+    await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
       .then((res) => res.json())
       .then(async (res) => {
         const detailedPokemon = await Promise.all(
@@ -41,14 +51,19 @@ const PokemonContent = () => {
 
   useEffect(() => {
     fetchPokemon();
-  }, []);
+  }, [limit]);
 
   return (
-    <div className={styles.content}>
-      {pokemonList.map((pokemon) => (
-        <PokemonCard key={pokemon.name} pokemon={pokemon} />
-      ))}
-    </div>
+    <>
+      <div className={styles.content}>
+        {pokemonList.map((pokemon) => (
+          <PokemonCard key={pokemon.name} pokemon={pokemon} />
+        ))}
+      </div>
+      <button className={styles.showMore} onClick={handleLoadMore}>
+        {limitBtn}
+      </button>
+    </>
   );
 };
 
