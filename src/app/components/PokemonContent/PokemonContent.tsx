@@ -17,7 +17,7 @@ const PokemonContent = () => {
   const [limitBtn, setLimitBtn] = useState("Show More");
   const [limit, setLimit] = useState(15);
 
-  const handleLoadMore = async () => {
+  const handleShowMore = async () => {
     if (limitBtn === "Loading...") return;
     setLimit((prevLimit) => prevLimit + 15);
     setLimitBtn("Loading...");
@@ -34,7 +34,7 @@ const PokemonContent = () => {
             const data = await fetch(pokemon.url).then((res) => res.json());
             return {
               id: data.id,
-              name: data.name.charAt(0).toUpperCase() + data.name.slice(1),
+              name: data.name.replace(/-/g, " "),
               hp: data.stats[0].base_stat,
               image: data.sprites.other["official-artwork"].front_default,
               types: data.types.map(
@@ -60,7 +60,7 @@ const PokemonContent = () => {
           <PokemonCard key={pokemon.name} pokemon={pokemon} />
         ))}
       </div>
-      <button className={styles.showMore} onClick={handleLoadMore}>
+      <button className={styles.showMore} onClick={handleShowMore}>
         {limitBtn}
       </button>
     </>
